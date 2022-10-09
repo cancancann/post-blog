@@ -1,0 +1,10 @@
+.app-header{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    width: calc(100% - 200px) ; /*important yemiyordu */
+    position: fixed !important;
+    padding: 8px !important;
+    top: 0 !important;
+    right: 0 !important;
+}
