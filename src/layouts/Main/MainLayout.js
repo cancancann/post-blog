@@ -7,7 +7,7 @@ const MainLayout = (props) => {
     return (
         <Layout>
             <Sidebar />
-            <Layout style={{ marginLeft: "200px" }}>
+            <Layout >
                 <AppHeader />
                 <AppContent>
                     {props.children}

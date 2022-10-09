@@ -1,0 +1,59 @@
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+::-webkit-slider-thumb {
+    background: #001529;
+}
+
+.container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width:476px) {
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+@media (min-width:768px) {
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+@media (min-width:992px) {
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width:1200px){
+    .container{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width:1400px){
+    .container{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+.ant-picker{
+    width: 100% !important;
+}
+.w-full{
+    width: 100% !important;
+}

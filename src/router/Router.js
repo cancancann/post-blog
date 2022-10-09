@@ -6,7 +6,8 @@ import SignIn from "../views/Auth/SignIn/SignIn";
 import SignUp from "../views/Auth/SignUp/SignUp";
 import { Routes, Route } from "react-router-dom";
 import React from "react";
-
+import AuthLayout from "../layouts/Auth/AuthLayout";
+import MainLayout from "../layouts/Main/MainLayout";
 
 export const AppRoutes = [
     {
@@ -44,7 +45,20 @@ export const AppRoutes = [
 ]
 
 const AppRouter = () => {
-    const renderComponent = (item) => {
+    const renderComponent = (item,isSub) => {
+        const protection = item.protect
+        if(protection===false){
+            if(item.children){
+                return <AuthLayout>{item.component}</AuthLayout>
+            }
+            return <>{item.component}</>
+        }
+        if(item.children){
+            return <MainLayout>{item.component}</MainLayout>
+        }
+        if(isSub===false){
+            return <MainLayout>{item.component}</MainLayout>
+        }
         return <>{item.component}</>
     }
 
@@ -63,7 +77,7 @@ const AppRouter = () => {
                                         )
                                     })}
                                 </Route>
-                            </> : <Route path={item.path} key={item.path} element={renderComponent(item)} />}
+                            </> : <Route path={item.path} key={item.path} element={renderComponent(item,false)} />}
                         </React.Fragment>
                     )
                 })}
