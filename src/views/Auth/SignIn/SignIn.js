@@ -1,18 +1,22 @@
 import { Button, Card, Form, Input} from "antd"
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import logo from '../../../assets/logo.png'
 import {request} from "../../../request/Request"
+import { setUser } from "../../../store/authSlice/AuthSlice"
 import './SignIn.css'
 
 
 const SignIn = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [form] = Form.useForm()
     const onFinish = (values)=>{
         request.post('user/signIn',{
             user_name:values.username,
             password:values.password
-        }).then(()=>{
+        }).then((res)=>{
+            dispatch(setUser(res.data))
             navigate('/')
         })
     }
