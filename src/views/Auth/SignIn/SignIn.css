@@ -1,0 +1,11 @@
+.sign-in-card{
+    border-radius:6px !important;
+    min-width: 400px;
+}
+
+.sign-in-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
