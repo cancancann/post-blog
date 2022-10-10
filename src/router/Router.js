@@ -4,10 +4,11 @@ import PostCreate from "../views/Post/PostCreate/PostCreate";
 import Auth from "../views/Auth/Auth";
 import SignIn from "../views/Auth/SignIn/SignIn";
 import SignUp from "../views/Auth/SignUp/SignUp";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import React from "react";
 import AuthLayout from "../layouts/Auth/AuthLayout";
 import MainLayout from "../layouts/Main/MainLayout";
+import { useSelector } from "react-redux";
 
 export const AppRoutes = [
     {
@@ -45,6 +46,7 @@ export const AppRoutes = [
 ]
 
 const AppRouter = () => {
+    const {user} = useSelector((state)=>state.auth)
     const renderComponent = (item,isSub) => {
         const protection = item.protect
         if(protection===false){
@@ -52,6 +54,9 @@ const AppRouter = () => {
                 return <AuthLayout>{item.component}</AuthLayout>
             }
             return <>{item.component}</>
+        }
+        if(!user){
+            return <Navigate to="/auth/sign-in"/>
         }
         if(item.children){
             return <MainLayout>{item.component}</MainLayout>
