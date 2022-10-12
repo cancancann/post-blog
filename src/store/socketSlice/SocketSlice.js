@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const SocketSlice = createSlice({
     name:"socketSlice",
     initialState:{
-        socketID:[]
+        socketID:''
     },
     reducers:{
         setSocketID:(state,action)=>{

@@ -1,10 +1,10 @@
 ::-webkit-scrollbar {
     width: 6px;
 }
-
+/* 
 ::-webkit-scrollbar-track {
-    background: #fff;
-}
+    background: #fff ;
+} */
 
 ::-webkit-slider-thumb {
     background: #001529;
@@ -56,4 +56,12 @@
 }
 .w-full{
     width: 100% !important;
+}
+.ant-layout {
+    height: 100vh !important;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    min-height: 0;
+    background: #f0f2f5;
 }
