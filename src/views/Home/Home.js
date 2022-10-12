@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { request } from "../../request/Request"
 import { setPosts } from "../../store/postSlice/PostSlice"
+import { socket } from "../../socket/socket"
 
 const Home = () => {
     const { posts } = useSelector((state) => state.post)
@@ -15,6 +16,13 @@ const Home = () => {
             dispatch(setPosts(res.data))
         })
     }, [])
+    useEffect(()=>{
+        socket.on('new post',(data)=>{
+            const array =[...posts]
+            array.unshift(data.payload)
+            setPosts(array)
+        })
+    })
     return (
         <>
             <Row>
